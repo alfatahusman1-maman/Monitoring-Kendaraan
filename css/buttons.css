@@ -1,0 +1,335 @@
+/**
+ * Global Button Styles
+ * Digunakan untuk semua halaman admin, keuangan, dan user
+ * Konsisten, responsive, dan modern
+ */
+
+/* ===== BUTTON UTAMA ===== */
+button, .btn, input[type="submit"] {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== PRIMARY BUTTON (Biru) ===== */
+button[type="submit"],
+.btn-primary,
+input[type="submit"][name="tambah"],
+input[type="submit"][name="update"],
+button[name="tambah"],
+button[name="update"] {
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    color: #fff;
+}
+
+button[type="submit"]:hover,
+.btn-primary:hover,
+input[type="submit"][name="tambah"]:hover,
+input[type="submit"][name="update"]:hover,
+button[name="tambah"]:hover,
+button[name="update"]:hover {
+    background: linear-gradient(135deg, #0056b3 0%, #003d82 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 123, 255, 0.3);
+}
+
+button[type="submit"]:active,
+.btn-primary:active,
+input[type="submit"][name="tambah"]:active,
+input[type="submit"][name="update"]:active,
+button[name="tambah"]:active,
+button[name="update"]:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0, 123, 255, 0.2);
+}
+
+/* ===== SUCCESS BUTTON (Hijau) ===== */
+.btn-success,
+button.success,
+input[type="submit"].success {
+    background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%);
+    color: #fff;
+}
+
+.btn-success:hover,
+button.success:hover,
+input[type="submit"].success:hover {
+    background: linear-gradient(135deg, #1e7e34 0%, #155724 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(40, 167, 69, 0.3);
+}
+
+.btn-success:active,
+button.success:active,
+input[type="submit"].success:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(40, 167, 69, 0.2);
+}
+
+/* ===== DANGER BUTTON (Merah) ===== */
+.btn-danger,
+button.delete,
+a.delete,
+input[type="submit"].delete,
+button[name="hapus"] {
+    background: linear-gradient(135deg, #dc3545 0%, #a71d2a 100%);
+    color: #fff;
+}
+
+.btn-danger:hover,
+button.delete:hover,
+a.delete:hover,
+input[type="submit"].delete:hover,
+button[name="hapus"]:hover {
+    background: linear-gradient(135deg, #a71d2a 0%, #7b151e 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(220, 53, 69, 0.3);
+}
+
+.btn-danger:active,
+button.delete:active,
+a.delete:active,
+input[type="submit"].delete:active,
+button[name="hapus"]:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(220, 53, 69, 0.2);
+}
+
+/* ===== WARNING BUTTON (Oranye/Kuning) ===== */
+.btn-warning,
+button.warning,
+input[type="submit"].warning {
+    background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%);
+    color: #333;
+}
+
+.btn-warning:hover,
+button.warning:hover,
+input[type="submit"].warning:hover {
+    background: linear-gradient(135deg, #e0a800 0%, #c69500 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(255, 193, 7, 0.3);
+}
+
+.btn-warning:active,
+button.warning:active,
+input[type="submit"].warning:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(255, 193, 7, 0.2);
+}
+
+/* ===== INFO BUTTON (Cyan) ===== */
+.btn-info,
+button.info,
+input[type="submit"].info {
+    background: linear-gradient(135deg, #17a2b8 0%, #0c5460 100%);
+    color: #fff;
+}
+
+.btn-info:hover,
+button.info:hover,
+input[type="submit"].info:hover {
+    background: linear-gradient(135deg, #0c5460 0%, #053d47 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(23, 162, 184, 0.3);
+}
+
+.btn-info:active,
+button.info:active,
+input[type="submit"].info:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(23, 162, 184, 0.2);
+}
+
+/* ===== SECONDARY/CANCEL BUTTON (Abu-abu) ===== */
+.btn-cancel,
+.btn-secondary,
+button.cancel,
+a.btn-cancel,
+input[type="reset"] {
+    background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+    color: #fff;
+}
+
+.btn-cancel:hover,
+.btn-secondary:hover,
+button.cancel:hover,
+a.btn-cancel:hover,
+input[type="reset"]:hover {
+    background: linear-gradient(135deg, #495057 0%, #343a40 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(108, 117, 125, 0.3);
+}
+
+.btn-cancel:active,
+.btn-secondary:active,
+button.cancel:active,
+a.btn-cancel:active,
+input[type="reset"]:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(108, 117, 125, 0.2);
+}
+
+/* ===== LINK BUTTON (Transparent) ===== */
+a.edit,
+a.view,
+button.edit,
+button.view {
+    background: linear-gradient(135deg, #27ae60 0%, #1e7e34 100%);
+    color: #fff;
+    padding: 6px 12px;
+    font-size: 13px;
+    margin-right: 5px;
+}
+
+a.edit:hover,
+button.edit:hover {
+    background: linear-gradient(135deg, #1e7e34 0%, #155724 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(39, 174, 96, 0.3);
+}
+
+a.view:hover,
+button.view:hover {
+    background: linear-gradient(135deg, #17a2b8 0%, #0c5460 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(23, 162, 184, 0.3);
+}
+
+/* ===== BUTTON GROUP ===== */
+.btn-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.btn-group button,
+.btn-group .btn,
+.btn-group a.btn,
+.btn-group input[type="submit"] {
+    flex: 1;
+    min-width: 120px;
+}
+
+/* ===== BUTTON SIZES ===== */
+.btn-sm,
+button.btn-sm {
+    padding: 8px 16px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.btn-lg,
+button.btn-lg {
+    padding: 14px 32px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+/* ===== BUTTON BLOCK (Full Width) ===== */
+.btn-block,
+button.btn-block {
+    width: 100%;
+}
+
+/* ===== DISABLED STATE ===== */
+button:disabled,
+.btn:disabled,
+input[type="submit"]:disabled,
+a.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+button:disabled:hover,
+.btn:disabled:hover,
+input[type="submit"]:disabled:hover,
+a.btn:disabled:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+/* ===== LOADING STATE ===== */
+button.loading,
+.btn.loading,
+input[type="submit"].loading {
+    position: relative;
+    pointer-events: none;
+}
+
+button.loading::after,
+.btn.loading::after,
+input[type="submit"].loading::after {
+    content: " ⏳";
+}
+
+/* ===== ICON + TEXT (untuk tombol dengan icon) ===== */
+button i,
+.btn i,
+input[type="submit"] i {
+    margin-right: 5px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    button, .btn, input[type="submit"] {
+        padding: 10px 16px;
+        font-size: 13px;
+    }
+    
+    .btn-sm {
+        padding: 6px 12px;
+        font-size: 11px;
+    }
+    
+    .btn-lg {
+        padding: 12px 24px;
+        font-size: 14px;
+    }
+    
+    .btn-group {
+        flex-direction: column;
+    }
+    
+    .btn-group button,
+    .btn-group .btn,
+    .btn-group a.btn,
+    .btn-group input[type="submit"] {
+        flex: 1;
+        min-width: auto;
+        width: 100%;
+    }
+}
+
+/* ===== FOCUS STATE (untuk accessibility) ===== */
+button:focus,
+.btn:focus,
+input[type="submit"]:focus {
+    outline: 2px solid rgba(0, 123, 255, 0.5);
+    outline-offset: 2px;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes buttonHover {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-2px); }
+    100% { transform: translateY(0); }
+}
+
+button.animate:hover,
+.btn.animate:hover {
+    animation: buttonHover 0.3s ease;
+}

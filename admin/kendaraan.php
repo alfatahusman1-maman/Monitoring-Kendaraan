@@ -270,7 +270,7 @@ $data = mysqli_query($conn, "SELECT * FROM kendaraan ORDER BY id DESC");
 <body>
 <?php include 'layout/sidebar.php'; ?>
 
-<div class="main-content">
+<div class="content">
     <h2> Data Kendaraan</h2>
     <p>
         <a href="dashboard.php">⬅ Kembali Dashboard</a> | 

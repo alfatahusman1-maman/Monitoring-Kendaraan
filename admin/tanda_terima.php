@@ -16,6 +16,7 @@ $data = mysqli_query($conn, "SELECT t.*, u.nama
 <html lang="id">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kelola Tanda Terima</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet">
@@ -23,22 +24,16 @@ $data = mysqli_query($conn, "SELECT t.*, u.nama
         body {
             background-color: #f8f9fa;
         }
-        .main-content {
-            margin-left: 250px; /* menyesuaikan lebar sidebar */
+        .content {
             padding: 20px;
             transition: all 0.3s;
-        }
-        @media (max-width: 992px) {
-            .main-content {
-                margin-left: 0;
-            }
         }
     </style>
 </head>
 <body>
 <?php include 'layout/sidebar.php'; ?>
 
-<div class="main-content">
+<div class="content">
     <div class="container-fluid">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h3 class="fw-bold text-primary"> Data Tanda Terima</h3>

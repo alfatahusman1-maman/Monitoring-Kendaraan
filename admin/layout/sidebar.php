@@ -7,7 +7,20 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['role'] != 'Admin') {
     return;
 }
 ?>
-<div class="sidebar">
+<link rel="stylesheet" href="../css/admin-style.css">
+
+<!-- Overlay for Mobile -->
+<div class="sidebar-overlay" id="overlay"></div>
+
+<!-- Top Nav for Mobile Toggle -->
+<div class="top-nav">
+    <button class="menu-toggle" id="toggleMenu">
+        <span>☰ Menu</span>
+    </button>
+    <div style="font-weight: bold;">Monitoring Kendaraan</div>
+</div>
+
+<div class="sidebar" id="sidebar">
     <!-- Logo -->
     <div class="logo-container">
         <img src="../lg dishub.png" alt="Logo Admin">
@@ -15,65 +28,43 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['role'] != 'Admin') {
     <h2>Admin</h2>
 
     <!-- Menu Navigasi -->
-    <a href="dashboard.php">Dashboard</a>
-    <a href="kendaraan.php">Data Kendaraan</a>
-    <a href="servis.php">Data Servis</a>
-    <a href="bbm.php">Data BBM</a>
-    <a href="laporan.php">Laporan</a>
-    <a href="tanda_terima.php">Tanda Terima</a>
-    <a href="kelola_admin.php">Kelola Admin & Keuangan</a>
-    <a href="pegawai.php">Tambah Pegawai</a>
-    <a href="kelola_pegawai.php">Data Pegawai</a>
-    <a href="../logout.php" onclick="return confirm('Yakin logout?')">Logout</a>
+    <a href="dashboard.php" class="nav-link">Dashboard</a>
+    <a href="kendaraan.php" class="nav-link">Data Kendaraan</a>
+    <a href="servis.php" class="nav-link">Data Servis</a>
+    <a href="bbm.php" class="nav-link">Data BBM</a>
+    <a href="laporan.php" class="nav-link">Laporan</a>
+    <a href="tanda_terima.php" class="nav-link">Tanda Terima</a>
+    <a href="kelola_admin.php" class="nav-link">Kelola Admin & Keuangan</a>
+    <a href="pegawai.php" class="nav-link">Tambah Pegawai</a>
+    <a href="kelola_pegawai.php" class="nav-link">Data Pegawai</a>
+    <a href="../logout.php" onclick="return confirm('Yakin logout?')" class="nav-link">Logout</a>
 </div>
 
-<style>
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
+<script>
+    const sidebar = document.getElementById('sidebar');
+    const toggleBtn = document.getElementById('toggleMenu');
+    const overlay = document.getElementById('overlay');
+
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        });
     }
-    .sidebar {
-        height: 100%;
-        width: 220px;
-        position: fixed;
-        top: 0;
-        left: 0;
-        background-color:  #007bff; 
-        padding-top: 20px;
-        color: #fff;
-        text-align: center;
-        overflow-y: auto;
+
+    if (overlay) {
+        overlay.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+        });
     }
-    .logo-container {
-        text-align: center;
-        margin-bottom: 10px;
-    }
-    .logo-container img {
-        width: 80px;
-        max-width: 100%;
-        height: auto;
-        border-radius: 50%;
-    }
-    .sidebar h2 {
-        margin-bottom: 25px;
-        font-size: 20px;
-    }
-    .sidebar a {
-        display: block;
-        padding: 14px 20px;
-        color: #fff;
-        text-decoration: none;
-        margin: 8px 12px;
-        border-radius: 6px;
-        font-size: 14px;
-        text-align: left;
-        transition: background-color 0.3s ease;
-    }
-    .sidebar a:hover {
-        background-color: #0056b3;
-    }
-    .content {
-        margin-left: 240px;
-        padding: 20px;
-    }
-</style>
+
+    // Mark active menu item
+    const currentPath = window.location.pathname.split('/').pop();
+    document.querySelectorAll('.nav-link').forEach(link => {
+        if (link.getAttribute('href') === currentPath) {
+            link.style.backgroundColor = 'var(--hover-color)';
+            link.style.borderLeft = '4px solid var(--text-white)';
+        }
+    });
+</script>

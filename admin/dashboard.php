@@ -67,7 +67,6 @@ while ($row = mysqli_fetch_assoc($tipeKendaraan)) {
             overflow-x: hidden;
         }
         .content {
-            margin-left: 220px;
             padding: 20px;
             min-height: 100vh;
         }
@@ -195,14 +194,6 @@ while ($row = mysqli_fetch_assoc($tipeKendaraan)) {
             color: #007bff;
             font-weight: bold;
         }
-        @media (max-width: 768px) {
-            .chart-section {
-                grid-template-columns: 1fr;
-            }
-            .content {
-                margin-left: 0;
-            }
-        }
         .info-badge {
             display: inline-block;
             background: #e7f3ff;
@@ -307,21 +298,6 @@ while ($row = mysqli_fetch_assoc($tipeKendaraan)) {
         <div class="chart-box">
             <h5><i class="fas fa-chart-doughnut"></i> Status Kendaraan</h5>
             <canvas id="doughnutChart"></canvas>
-        </div>
-    </div>
-</div>
-        </div>
-    </div>
-
-    <!-- Grafik dalam 1 layar -->
-    <div class="charts">
-        <div class="chart-container">
-            <h6>📈 Grafik Statistik</h6>
-            <canvas id="barChart"></canvas>
-        </div>
-        <div class="chart-container">
-            <h6>📊 Distribusi Data</h6>
-            <canvas id="pieChart"></canvas>
         </div>
     </div>
 </div>

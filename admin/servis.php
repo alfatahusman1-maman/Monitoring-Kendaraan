@@ -76,12 +76,10 @@ $data = mysqli_query($conn, "
 <html lang="id">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Konfirmasi Servis</title>
 
 <style>
-    body { margin:0; font-family: Arial, sans-serif; }
-    .content { margin-left: 220px; padding:20px; }
-
     table { border-collapse: collapse; width:100%; margin-top:15px; }
     th, td { border:1px solid #ccc; padding:8px; text-align:center; }
     th { background:#0056b3; color:white; }
@@ -91,7 +89,7 @@ $data = mysqli_query($conn, "
     .setuju { background:green; }
     .tolak { background:#d9534f; }
     .hapus { background:#444; }
-    .filter-btn { padding:8px 12px; background:#EEE; border-radius:4px; margin-right:5px; }
+    .filter-btn { padding:8px 12px; background:#EEE; border-radius:4px; margin-right:5px; display: inline-block; margin-bottom: 5px; }
     .active-filter { background:#007BFF; color:white; }
 </style>
 </head>
@@ -111,7 +109,8 @@ $data = mysqli_query($conn, "
         <a href="servis.php?status=REJECTED" class="filter-btn <?= ($status_filter=='REJECTED'?'active-filter':''); ?>">Ditolak</a>
     </div>
 
-    <table>
+    <div class="table-responsive">
+        <table>
         <tr>
             <th>ID</th>
             <th>User</th>
@@ -169,7 +168,8 @@ $data = mysqli_query($conn, "
             </td>
         </tr>
         <?php endwhile; ?>
-    </table>
+        </table>
+    </div>
 </div>
 
 </body>

@@ -134,7 +134,6 @@ if($msg == 'rejected') $message = 'Pengajuan BBM berhasil ditolak.';
             background: #f5f7fa; 
         }
         .content { 
-            margin-left: 220px; 
             padding: 20px; 
         }
         
@@ -300,7 +299,8 @@ if($msg == 'rejected') $message = 'Pengajuan BBM berhasil ditolak.';
         <a href="bbm.php?status=REJECTED" class="filter <?= ($status_filter=='REJECTED'?'active-filter':''); ?>">❌ Ditolak</a>
     </div>
 
-    <table class="table table-hover">
+    <div class="table-responsive">
+        <table class="table table-hover">
         <thead>
         <tr>
             <th>ID</th>
@@ -381,7 +381,8 @@ if($msg == 'rejected') $message = 'Pengajuan BBM berhasil ditolak.';
             <?php endwhile; ?>
         <?php endif; ?>
         </tbody>
-    </table>
+        </table>
+    </div>
 
 </div>
 

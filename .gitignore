@@ -1,0 +1,5 @@
+/vendor/
+/uploads/
+upload_railway.php
+.env
+*.log

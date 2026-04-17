@@ -63,7 +63,7 @@ $data = mysqli_query($conn, "SELECT * FROM users WHERE role IN ('Admin','Keuanga
         table tr:nth-child(even) { background:#f9f9f9; }
         table tr:hover { background:#eef6fc; }
 
-        .action-links a { margin-right:8px; padding:6px 10px; border-radius:6px; font-size:13px; color:#fff; }
+        .action-links a { display: inline-block; margin: 5px; padding:6px 10px; border-radius:6px; font-size:13px; color:#fff; }
         .action-links a.delete { background:#e74c3c; }
         .action-links a.delete:hover { background:#c0392b; }
 

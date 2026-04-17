@@ -92,7 +92,7 @@ $data = mysqli_query($conn, "
         text-decoration:none; 
         color:white; 
         font-size:13px; 
-        margin: 2px;
+        margin: 5px;
     }
     .setuju { background:green; }
     .tolak { background:#d9534f; }

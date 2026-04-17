@@ -258,7 +258,7 @@ if($msg == 'rejected') $message = 'Pengajuan BBM berhasil ditolak.';
             display: inline-block;
             padding: 6px 12px;
             font-size: 12px;
-            margin: 3px;
+            margin: 5px;
         }
 
         .action-cell {

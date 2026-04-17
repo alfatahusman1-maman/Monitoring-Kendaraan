@@ -43,7 +43,8 @@ if (isset($_POST['login'])) {
             background: #007bff; /* Biru */
             padding: 30px;
             border-radius: 10px;
-            width: 370px;
+            width: 90%;
+            max-width: 370px;
             text-align: center;
             box-shadow: 0px 4px 12px rgba(0,0,0,0.25);
             color: white;

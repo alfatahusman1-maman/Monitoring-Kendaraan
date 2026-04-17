@@ -347,56 +347,58 @@ $data = mysqli_query($conn, "SELECT * FROM kendaraan ORDER BY id DESC");
     </div>
 
     <h3>📋 Daftar Kendaraan</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>No Polisi</th>
-                <th>Merk</th>
-                <th>Tipe</th>
-                <th>Tahun</th>
-                <th>Jenis</th>
-                <th>Kondisi</th>
-                <th>Foto</th>
-                <th>Aksi</th>
-            </tr>
-        </thead>
-        <tbody>
-        <?php while($k = mysqli_fetch_assoc($data)): ?>
-            <tr>
-                <td><?php echo htmlspecialchars($k['id']); ?></td>
-                <td><?php echo htmlspecialchars($k['no_polisi']); ?></td>
-                <td><?php echo htmlspecialchars($k['merk']); ?></td>
-                <td><?php echo htmlspecialchars($k['tipe']); ?></td>
-                <td><?php echo htmlspecialchars($k['tahun']); ?></td>
-                <td><?php echo htmlspecialchars($k['jenis']); ?></td>
-                <td><?php echo htmlspecialchars($k['kondisi']); ?></td>
-                <td class="photo-cell">
-                    <?php if (!empty($k['foto']) && file_exists("../uploads/" . $k['foto'])): ?>
-                        <img src="../uploads/<?php echo htmlspecialchars($k['foto']); ?>" 
-                             alt="Foto <?php echo htmlspecialchars($k['no_polisi']); ?>"
-                             class="photo-thumbnail"
-                             data-id="<?php echo $k['id']; ?>"
-                             data-no-polisi="<?php echo htmlspecialchars($k['no_polisi']); ?>"
-                             data-merk="<?php echo htmlspecialchars($k['merk']); ?>"
-                             data-tipe="<?php echo htmlspecialchars($k['tipe']); ?>"
-                             data-tahun="<?php echo $k['tahun']; ?>"
-                             data-jenis="<?php echo htmlspecialchars($k['jenis']); ?>"
-                             data-kondisi="<?php echo htmlspecialchars($k['kondisi']); ?>"
-                             data-foto="<?php echo htmlspecialchars($k['foto']); ?>"
-                             style="cursor: pointer;">
-                    <?php else: ?>
-                        <span style="color: #999; font-size: 12px;">Tidak ada foto</span>
-                    <?php endif; ?>
-                </td>
-                <td class="action-links">
-                    <a href="?edit=<?php echo $k['id']; ?>" class="edit btn-sm">Edit</a>
-                    <a href="?hapus=<?php echo $k['id']; ?>" class="delete btn-sm" onclick="return confirm('Hapus data kendaraan ini?')">Hapus</a>
-                </td>
-            </tr>
-        <?php endwhile; ?>
-        </tbody>
-    </table>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>No Polisi</th>
+                    <th>Merk</th>
+                    <th>Tipe</th>
+                    <th>Tahun</th>
+                    <th>Jenis</th>
+                    <th>Kondisi</th>
+                    <th>Foto</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php while($k = mysqli_fetch_assoc($data)): ?>
+                <tr>
+                    <td><?php echo htmlspecialchars($k['id']); ?></td>
+                    <td><?php echo htmlspecialchars($k['no_polisi']); ?></td>
+                    <td><?php echo htmlspecialchars($k['merk']); ?></td>
+                    <td><?php echo htmlspecialchars($k['tipe']); ?></td>
+                    <td><?php echo htmlspecialchars($k['tahun']); ?></td>
+                    <td><?php echo htmlspecialchars($k['jenis']); ?></td>
+                    <td><?php echo htmlspecialchars($k['kondisi']); ?></td>
+                    <td class="photo-cell">
+                        <?php if (!empty($k['foto']) && file_exists("../uploads/" . $k['foto'])): ?>
+                            <img src="../uploads/<?php echo htmlspecialchars($k['foto']); ?>" 
+                                 alt="Foto <?php echo htmlspecialchars($k['no_polisi']); ?>"
+                                 class="photo-thumbnail"
+                                 data-id="<?php echo $k['id']; ?>"
+                                 data-no-polisi="<?php echo htmlspecialchars($k['no_polisi']); ?>"
+                                 data-merk="<?php echo htmlspecialchars($k['merk']); ?>"
+                                 data-tipe="<?php echo htmlspecialchars($k['tipe']); ?>"
+                                 data-tahun="<?php echo $k['tahun']; ?>"
+                                 data-jenis="<?php echo htmlspecialchars($k['jenis']); ?>"
+                                 data-kondisi="<?php echo htmlspecialchars($k['kondisi']); ?>"
+                                 data-foto="<?php echo htmlspecialchars($k['foto']); ?>"
+                                 style="cursor: pointer;">
+                        <?php else: ?>
+                            <span style="color: #999; font-size: 12px;">Tidak ada foto</span>
+                        <?php endif; ?>
+                    </td>
+                    <td class="action-links">
+                        <a href="?edit=<?php echo $k['id']; ?>" class="edit btn-sm">Edit</a>
+                        <a href="?hapus=<?php echo $k['id']; ?>" class="delete btn-sm" onclick="return confirm('Hapus data kendaraan ini?')">Hapus</a>
+                    </td>
+                </tr>
+            <?php endwhile; ?>
+            </tbody>
+        </table>
+    </div>
 </div>
 
 <!-- Modal untuk Preview Foto Kendaraan -->

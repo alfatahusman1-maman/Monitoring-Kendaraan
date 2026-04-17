@@ -201,37 +201,38 @@ if ($user['role'] == 'User' && isset($_POST['update'])) {
 
         <?php if ($user['role'] == 'Admin'): ?>
         <div class="card">
-            <h3>Data Pegawai</h3>
-            <table>
-                <tr>
-                    <th>No</th><th>Nama</th><th>NIP</th><th>Alamat</th><th>Email</th>
-                    <th>No HP</th><th>Kendaraan</th><th>Foto</th><th>Aksi</th>
-                </tr>
-                <?php
-                $q = mysqli_query($conn, "SELECT p.*, d.nip, d.alamat, d.email, d.no_hp, d.kendaraan, d.foto 
-                                          FROM pegawai p 
-                                          LEFT JOIN pegawai_detail d ON p.id=d.id_pegawai");
-                $no=1;
-                while ($r=mysqli_fetch_assoc($q)):
-                    $fotoPath = (!empty($r['foto']) && file_exists($uploadDir.$r['foto'])) 
-                                ? "../uploads/".htmlspecialchars($r['foto']) : "";
-                ?>
-                <tr>
-                    <td><?= $no++ ?></td>
-                    <td><?= htmlspecialchars($r['nama'] ?? '') ?></td>
-                    <td><?= htmlspecialchars($r['nip'] ?? '') ?></td>
-                    <td><?= htmlspecialchars($r['alamat'] ?? '') ?></td>
-                    <td><?= htmlspecialchars($r['email'] ?? '') ?></td>
-                    <td><?= htmlspecialchars($r['no_hp'] ?? '') ?></td>
-                    <td><?= htmlspecialchars($r['kendaraan'] ?? '') ?></td>
-                    <td><?= $fotoPath ? "<img src='$fotoPath' width='50' style='cursor:pointer' onclick=\"openModal('$fotoPath')\">" : '' ?></td>
-                    <td>
-                        <a href='kelola_pegawai.php?edit=<?= $r['id'] ?>' class="btn btn-edit">Edit</a>
-                        <a href='kelola_pegawai.php?hapus=<?= $r['id'] ?>' class="btn btn-del" onclick="return confirm('Yakin hapus?')">Hapus</a>
-                    </td>
-                </tr>
-                <?php endwhile; ?>
-            </table>
+            <div class="table-responsive">
+                <table>
+                    <tr>
+                        <th>No</th><th>Nama</th><th>NIP</th><th>Alamat</th><th>Email</th>
+                        <th>No HP</th><th>Kendaraan</th><th>Foto</th><th>Aksi</th>
+                    </tr>
+                    <?php
+                    $q = mysqli_query($conn, "SELECT p.*, d.nip, d.alamat, d.email, d.no_hp, d.kendaraan, d.foto 
+                                              FROM pegawai p 
+                                              LEFT JOIN pegawai_detail d ON p.id=d.id_pegawai");
+                    $no=1;
+                    while ($r=mysqli_fetch_assoc($q)):
+                        $fotoPath = (!empty($r['foto']) && file_exists($uploadDir.$r['foto'])) 
+                                    ? "../uploads/".htmlspecialchars($r['foto']) : "";
+                    ?>
+                    <tr>
+                        <td><?= $no++ ?></td>
+                        <td><?= htmlspecialchars($r['nama'] ?? '') ?></td>
+                        <td><?= htmlspecialchars($r['nip'] ?? '') ?></td>
+                        <td><?= htmlspecialchars($r['alamat'] ?? '') ?></td>
+                        <td><?= htmlspecialchars($r['email'] ?? '') ?></td>
+                        <td><?= htmlspecialchars($r['no_hp'] ?? '') ?></td>
+                        <td><?= htmlspecialchars($r['kendaraan'] ?? '') ?></td>
+                        <td><?= $fotoPath ? "<img src='$fotoPath' width='50' style='cursor:pointer' onclick=\"openModal('$fotoPath')\">" : '' ?></td>
+                        <td>
+                            <a href='kelola_pegawai.php?edit=<?= $r['id'] ?>' class="btn btn-edit">Edit</a>
+                            <a href='kelola_pegawai.php?hapus=<?= $r['id'] ?>' class="btn btn-del" onclick="return confirm('Yakin hapus?')">Hapus</a>
+                        </td>
+                    </tr>
+                    <?php endwhile; ?>
+                </table>
+            </div>
         </div>
 
         <?php if (isset($_GET['edit'])): 

@@ -15,9 +15,11 @@ $bulan_awal = $_GET['bulan_awal'];
 $bulan_akhir = $_GET['bulan_akhir'];
 
 // Query data biaya service
-$query = "SELECT * FROM service
-          WHERE YEAR(tanggal_service) = '$tahun' 
-          AND MONTH(tanggal_service) BETWEEN '$bulan_awal' AND '$bulan_akhir'";
+$query = "SELECT s.*, CONCAT(k.merk, ' ', k.tipe, ' (', k.no_polisi, ')') as nama_kendaraan 
+          FROM servis s
+          JOIN kendaraan k ON s.id_kendaraan = k.id
+          WHERE YEAR(s.tanggal) = '$tahun' 
+          AND MONTH(s.tanggal) BETWEEN '$bulan_awal' AND '$bulan_akhir'";
 $result = mysqli_query($conn, $query);
 
 // Buat HTML laporan
@@ -41,7 +43,7 @@ $total = 0;
 while ($row = mysqli_fetch_assoc($result)) {
     $html .= "<tr>
         <td>{$no}</td>
-        <td>{$row['tanggal_service']}</td>
+        <td>{$row['tanggal']}</td>
         <td>{$row['nama_kendaraan']}</td>
         <td>Rp " . number_format($row['biaya'], 0, ',', '.') . "</td>
         <td>{$row['keterangan']}</td>

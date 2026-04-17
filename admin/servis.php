@@ -85,7 +85,15 @@ $data = mysqli_query($conn, "
     th { background:#0056b3; color:white; }
     tr:nth-child(even) { background:#f9f9f9; }
 
-    .btn { padding:6px 10px; border-radius:4px; text-decoration:none; color:white; font-size:13px; }
+    .btn { 
+        display: inline-block; 
+        padding:6px 10px; 
+        border-radius:4px; 
+        text-decoration:none; 
+        color:white; 
+        font-size:13px; 
+        margin: 2px;
+    }
     .setuju { background:green; }
     .tolak { background:#d9534f; }
     .hapus { background:#444; }

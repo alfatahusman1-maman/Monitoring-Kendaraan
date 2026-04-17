@@ -151,7 +151,7 @@ $data = mysqli_query($conn, "SELECT * FROM kendaraan ORDER BY id DESC");
         table th, table td { padding: 12px; border-bottom: 1px solid #eee; }
         table th { background:  #007bff; color: #fff; }
         table tr:hover { background: #f3f9ff; }
-        .action-links a { padding: 6px 10px; border-radius: 6px; font-size: 13px; color: #fff; margin-right: 5px; }
+        .action-links a { display: inline-block; padding: 6px 10px; border-radius: 6px; font-size: 13px; color: #fff; margin: 2px; }
         .action-links a.edit { background: #27ae60; }
         .action-links a.delete { background: #e74c3c; }
         .photo-cell img { max-width: 80px; max-height: 80px; border-radius: 6px; object-fit: cover; }

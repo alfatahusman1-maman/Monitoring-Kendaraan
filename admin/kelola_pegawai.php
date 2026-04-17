@@ -127,10 +127,12 @@ if ($user['role'] == 'User' && isset($_POST['update'])) {
             background: #f9f9f9;
         }
         .btn {
+            display: inline-block;
             padding: 6px 12px;
             border-radius: 5px;
             text-decoration: none;
             font-size: 14px;
+            margin: 2px;
         }
         .btn-edit {
             background: #ffc107;

@@ -97,8 +97,10 @@ if ($user['role'] == 'User' && isset($_POST['update'])) {
             padding: 20px;
         }
         h2 {
-            margin-top: 0;
+            margin-top: 10px;
+            margin-bottom: 25px;
             color: #333;
+            font-weight: 700;
         }
         .card {
             background: #fff;

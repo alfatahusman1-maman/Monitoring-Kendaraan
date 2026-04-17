@@ -13,27 +13,12 @@ $tahun = intval($_GET['tahun']);
 $bulan_awal = intval($_GET['bulan_awal']);
 $bulan_akhir = intval($_GET['bulan_akhir']);
 
-// Cek kolom untuk jenis BBM
-$kolom_jenis_bbm = '';
-$columns = mysqli_query($conn, "SHOW COLUMNS FROM bbm");
-while($col = mysqli_fetch_assoc($columns)){
-    $col_name = strtolower($col['Field']);
-    if(in_array($col_name, ['jenis_bbm','nama_bbm','tipe_bbm'])){
-        $kolom_jenis_bbm = $col['Field'];
-        break;
-    }
-}
-
-if($kolom_jenis_bbm == ''){
-    die("Kolom jenis BBM tidak ditemukan di tabel bbm!");
-}
-
 // Query total per jenis BBM
-$query = "SELECT $kolom_jenis_bbm as jenis_bbm, SUM(liter) as total_liter, SUM(biaya) as total_biaya 
+$query = "SELECT jenis_bbm, SUM(liter) as total_liter, SUM(biaya) as total_biaya 
           FROM bbm 
           WHERE YEAR(tanggal) = '$tahun' 
           AND MONTH(tanggal) BETWEEN '$bulan_awal' AND '$bulan_akhir'
-          GROUP BY $kolom_jenis_bbm";
+          GROUP BY jenis_bbm";
 $result = mysqli_query($conn, $query);
 
 $html = "

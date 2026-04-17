@@ -14,9 +14,11 @@ $bulan_awal = $_GET['bulan_awal'];
 $bulan_akhir = $_GET['bulan_akhir'];
 
 // Query data BBM kendaraan
-$query = "SELECT * FROM bbm 
-          WHERE YEAR(tanggal) = '$tahun' 
-          AND MONTH(tanggal) BETWEEN '$bulan_awal' AND '$bulan_akhir'";
+$query = "SELECT b.*, CONCAT(k.merk, ' ', k.tipe, ' (', k.no_polisi, ')') as nama_kendaraan 
+          FROM bbm b
+          JOIN kendaraan k ON b.id_kendaraan = k.id
+          WHERE YEAR(b.tanggal) = '$tahun' 
+          AND MONTH(b.tanggal) BETWEEN '$bulan_awal' AND '$bulan_akhir'";
 $result = mysqli_query($conn, $query);
 
 $html = "
